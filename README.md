@@ -1,4 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Star Wars API demo
+
+Simple web page to visualize star wars chars based on swapi.
+Swapi [documentation](https://swapi.co/)
+
+![Demo gif](./demo.gif)
+
+### Requirements
+1. [Node.js](https://nodejs.org/en/)
+2. [React](https://reactjs.org/)
+3. [npm](https://www.npmjs.com/)
+
+### Setup
+1. git clone https://github.com/kisfilip/sw-api-demo.git
+2. cd sw-api-demo
+3. npm install
 
 ## Available Scripts
 
