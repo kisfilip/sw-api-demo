@@ -13,9 +13,10 @@ class OutputList extends React.Component {
             <span>
               {this.props.charData.name}
             </span>
+          </li>
           <li>
             <span>
-              {`Gener: `}
+              {`Gender: `}
             </span>
             <span>
               {this.props.charData.gender}
@@ -44,7 +45,6 @@ class OutputList extends React.Component {
             <span>
               {this.props.charData.eye_color}
             </span>
-          </li>
           </li>
         </ul>
       </section>
