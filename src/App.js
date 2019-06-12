@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Header from './components/Header.js';
+import Description from './components/Description.js';
+import RequestButton from './components/RequestButton.js';
+import OutputList from './components/OutputList.js';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      numOfChars: 0,
+      charData: null
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://swapi.co/api/people/')
+    .then(results => {
+    return results.json();
+    }).then(data => {
+      this.setState({numOfChars: data.count});
+    })
+  }
+
+  handleClick = () => {
+    fetch(`https://swapi.co/api/people/${Math.ceil(Math.random() * this.state.numOfChars)}`)
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      this.setState({charData: data});
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <section className="Main-section">
+          <Header />
+          <Description numOfChars={this.state.numOfChars} />
+          <RequestButton handleClick={this.handleClick}/>
+          <OutputList charData={this.state.charData}/>
+        </section>
+      </div>
+    );
+  }
 }
 
 export default App;
